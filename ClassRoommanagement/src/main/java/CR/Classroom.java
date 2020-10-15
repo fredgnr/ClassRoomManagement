@@ -8,6 +8,7 @@ public class Classroom implements Serializable {
     private int ClassRoomCapacity;
     private String ClassRoomBuilding;
     private roomtype ClassRoomCatelog;
+    private int offered;
 
     public int getClassRoomID() {
         return ClassRoomID;
@@ -39,5 +40,13 @@ public class Classroom implements Serializable {
 
     public void setClassRoomCatelog(roomtype classRoomCatelog) {
         ClassRoomCatelog = classRoomCatelog;
+    }
+
+    public int getOffered() {
+        return offered;
+    }
+
+    public void setOffered(int offered) {
+        this.offered = offered;
     }
 }

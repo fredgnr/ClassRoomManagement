@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class mytest {
     InputStream inputStream = null;
@@ -83,5 +84,21 @@ public class mytest {
         user.setStudentPassWord("zz434370");
         iUserDao.addUser(user);
         System.out.println("成功连接");
+    }
+
+    @Test
+    public void login(){
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("账号：");
+        String id="2017302590226";//scanner.nextLine();
+        System.out.println("密码：");
+        String pwd="zz434370";//scanner.nextLine();
+        User user=iUserDao.findByStuId(id);
+        if(user ==null)
+            System.out.println("账号错误");
+        if(user.login(id,pwd))
+            System.out.println("成功登录");
+        else
+            System.out.println("登录失败");
     }
 }

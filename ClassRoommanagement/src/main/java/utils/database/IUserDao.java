@@ -8,9 +8,9 @@ import java.util.List;
 public interface IUserDao {
     public List<User> findall();
 
-    public Application findbyName(String studentname);
+    public User findbyName(String studentname);
 
-    public Application findByStuId(String studentid);
+    public User findByStuId(String studentid);
 
     public void deleteuser(User user);
 
