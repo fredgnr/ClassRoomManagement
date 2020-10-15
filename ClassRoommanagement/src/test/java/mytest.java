@@ -1,4 +1,5 @@
 import App.Application;
+import USER.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import utils.IApplication;
 import utils.database.IApplicationDao;
+import utils.database.IUserDao;
 
 
 import javax.xml.crypto.Data;
@@ -20,6 +22,7 @@ public class mytest {
     InputStream inputStream = null;
     SqlSession sqlSession = null;
     IApplicationDao iApplicationDao=null;
+    IUserDao iUserDao=null;
 
     @Before
     public void init() throws IOException {
@@ -30,6 +33,7 @@ public class mytest {
         //3.SqlSession对象
         sqlSession = sqlSessionFactory.openSession();
         iApplicationDao=sqlSession.getMapper(IApplicationDao.class);
+        iUserDao=sqlSession.getMapper(IUserDao.class);
     }
 
     @After
@@ -60,6 +64,24 @@ public class mytest {
         List<Application> applications=iApplicationDao.findall();
         for(Application application:applications)
             System.out.println(application);
+        System.out.println("成功连接");
+    }
+
+    @Test
+    public void test2(){
+        List<User> users=iUserDao.findall();
+        for(User user:users)
+            System.out.println(user);
+        System.out.println("成功连接");
+    }
+
+    @Test
+    public void addstudent(){
+        User user=new User();
+        user.setStudentID("2017302590226");
+        user.setStudentName("朱家伟");
+        user.setStudentPassWord("zz434370");
+        iUserDao.addUser(user);
         System.out.println("成功连接");
     }
 }

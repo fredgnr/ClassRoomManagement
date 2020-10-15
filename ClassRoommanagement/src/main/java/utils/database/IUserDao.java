@@ -6,7 +6,7 @@ import USER.User;
 import java.util.List;
 
 public interface IUserDao {
-    public List<Application> findall();
+    public List<User> findall();
 
     public Application findbyName(String studentname);
 
