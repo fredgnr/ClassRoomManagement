@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="utils.database.IApplicationDao">
+    <select id="findall" resultType="App.Application">
+        select * from applications;
+    </select>
+    
+    <select id="findbyAppId" resultType="App.Application">
+        select * from applications where AppId=#{uid};
+    </select>
+
+    <select id="findByStuId" resultType="App.Application">
+        select * from applications where AppId=#{stuid};
+    </select>
+
+    <delete id="deleteApp" parameterType="App.Application">
+        delete from applications where AppId=#{AppId};
+    </delete>
+
+    <insert id="addApp" parameterType="App.Application">
+        insert into applications( AppId,StudentID ,ClassroomID ,DemandTime,Priority,Message)
+         values(#{AppID},#{StudentID},#{ClassroomID},#{DemandTime},#{Priority},#{Message});
+
+    </insert>
+</mapper>

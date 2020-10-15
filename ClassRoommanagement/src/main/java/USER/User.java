@@ -1,21 +1,23 @@
 package USER;
 
 import App.Application;
-import util.IApplication;
-import util.ICheckList;
-import util.IFeedBack;
-import util.ILog;
+import utils.IApplication;
+import utils.ICheckList;
+import utils.IFeedBack;
+import utils.ILog;
 
-public class User implements IApplication, ICheckList, IFeedBack, ILog {
-    private  int StudentId;
+import java.io.Serializable;
+
+public class User implements IApplication, ICheckList, IFeedBack, ILog, Serializable {
+    private  String StudentId;
     private String StudentName;
     private String StudentPassWord;
 
-    public int getStudentId() {
+    public String getStudentId() {
         return StudentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(String studentId) {
         StudentId = studentId;
     }
 
@@ -60,9 +62,12 @@ public class User implements IApplication, ICheckList, IFeedBack, ILog {
 
     }
 
+
     @Override
-    public boolean login() {
-        return false;
+    public boolean login(String account, String password) {
+        if(account.equals(StudentId)&&password.equals(StudentPassWord))
+            return true;
+        else return false;
     }
 
     @Override

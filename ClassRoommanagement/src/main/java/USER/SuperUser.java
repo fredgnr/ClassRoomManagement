@@ -1,20 +1,20 @@
 package USER;
 
 import App.Application;
-import util.IApplication;
-import util.ICheckList;
-import util.IFeedBack;
-import util.ILog;
+import utils.IApplication;
+import utils.ICheckList;
+import utils.IFeedBack;
+import utils.ILog;
 
 public class SuperUser implements IApplication, ICheckList, IFeedBack, ILog {
-    private int SuperUserId;
-    private int SuperUserPassword;
+    private String SuperUserId;
+    private String SuperUserPassword;
 
-    public void setSuperUserId(int superUserId) {
+    public void setSuperUserId(String superUserId) {
         SuperUserId = superUserId;
     }
 
-    public void setSuperUserPassword(int superUserPassword) {
+    public void setSuperUserPassword(String superUserPassword) {
         SuperUserPassword = superUserPassword;
     }
 
@@ -44,8 +44,10 @@ public class SuperUser implements IApplication, ICheckList, IFeedBack, ILog {
     }
 
     @Override
-    public boolean login() {
-        return false;
+    public boolean login(String account, String password) {
+       if(account.equals(SuperUserId)&&password.equals(SuperUserPassword))
+           return true;
+       else return false;
     }
 
     @Override

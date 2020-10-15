@@ -1,39 +1,40 @@
 package App;
 
+import sun.security.jca.GetInstance;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Application implements Serializable {
-    public int AppId;
-    public int StudentID;
-    public int ClassRoomID;
+    public String AppID;
+    public String StudentID;
+    public String ClassroomID;
     public Date DemandTime;
     public int Priority;
     public String Message;
 
-    public int getAppId() {
-        return AppId;
-
+    public String getAppID() {
+        return AppID;
     }
 
-    public void setAppId(int appId) {
-        AppId = appId;
+    public void setAppID(String appID) {
+        AppID = appID;
     }
 
-    public int getStudentID() {
+    public String getStudentID() {
         return StudentID;
     }
 
-    public void setStudentID(int studentID) {
+    public void setStudentID(String studentID) {
         StudentID = studentID;
     }
 
-    public int getClassRoomID() {
-        return ClassRoomID;
+    public String getClassroomID() {
+        return ClassroomID;
     }
 
-    public void setClassRoomID(int classRoomID) {
-        ClassRoomID = classRoomID;
+    public void setClassroomID(String classRoomID) {
+        ClassroomID = classRoomID;
     }
 
     public Date getDemandTime() {
@@ -63,9 +64,9 @@ public class Application implements Serializable {
     @Override
     public String toString() {
         return "Application{" +
-                "AppId=" + AppId +
+                "AppId=" + AppID +
                 ", StudentID=" + StudentID +
-                ", ClassRoomID=" + ClassRoomID +
+                ", ClassRoomID=" + ClassroomID +
                 ", DemandTime=" + DemandTime +
                 ", Priority=" + Priority +
                 ", Message='" + Message + '\'' +
